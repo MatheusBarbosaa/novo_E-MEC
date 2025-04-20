@@ -1,123 +1,198 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cadastro e-MEC</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background: #f5f9fc;
-            color: #333;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro e-MEC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f3f6f9;
+      color: #333;
+    }
 
-        header {
-            background: #76ACD4;
-            padding: 1rem;
-            color: #fff;
-            text-align: center;
-        }
+    header {
+      background-color: #003366;
+      color: #fff;
+      padding: 2rem 1rem;
+      text-align: center;
+      position: relative;
+    }
 
-        .container {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 1rem;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+    header svg {
+      width: 80px;
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+    }
 
-        form {
-            display: grid;
-            gap: 1rem;
-        }
+    header h1 {
+      margin: 0;
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
 
-        fieldset {
-            border: none;
-            display: flex;
-            gap: 1rem;
-        }
+    header p {
+      font-size: 0.95rem;
+      max-width: 900px;
+      margin: 1rem auto 0;
+      line-height: 1.5;
+      text-align: justify;
+    }
 
-        label {
-            display: flex;
-            flex-direction: column;
-        }
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
 
-        input,
-        select,
-        button {
-            padding: 0.6rem;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 1rem;
-        }
+    form {
+      display: grid;
+      gap: 1rem;
+    }
 
-        button {
-            background-color: #76ACD4;
-            color: white;
-            cursor: pointer;
-            border: none;
-            transition: background 0.3s ease;
-        }
+    fieldset {
+      border: none;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
 
-        button:hover {
-            background-color: #5c90b5;
-        }
+    fieldset label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 500;
+    }
 
-        #resultado {
-            margin-top: 2rem;
-        }
+    input[type="radio"] {
+      transform: scale(1.2);
+    }
 
-        #listaResultados li {
-            padding: 0.6rem;
-            border-bottom: 1px solid #eee;
-        }
-    </style>
+    label {
+      display: flex;
+      flex-direction: column;
+      font-weight: 500;
+    }
+
+    input,
+    select,
+    button {
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      margin-top: 0.3rem;
+    }
+
+    button {
+      background-color: #003366;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #00244c;
+    }
+
+    #resultado {
+      margin-top: 2rem;
+    }
+
+    #resultado h2 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    #listaResultados li {
+      background: #f9f9f9;
+      padding: 0.7rem 1rem;
+      border-left: 4px solid #003366;
+      margin-bottom: 0.7rem;
+      border-radius: 6px;
+    }
+  </style>
 </head>
 
 <body>
-    <header>
-        <h1>Cadastro Nacional de Cursos e Instituições de Educação Superior</h1>
-        <p>Bem vindo ao Cadastro e-MEC, regulamentado pela Portaria Normativa nº 21...</p>
-    </header>
+  <header>
+    <!-- SVG do brasão do Brasil -->
+    <svg xmlns="https://brasao.org/wp-content/uploads/2018/09/brasao-do-brasil.png">
+      <image href="https://brasao.org/wp-content/uploads/2018/09/brasao-do-brasil.png" width="90" height="80"/>
+    </svg>
 
-    <main class="container">
-        <form id="formBusca">
-            <fieldset>
-                <legend>Buscar por:</legend>
-                <label><input type="radio" name="tipo" checked /> Instituição</label>
-                <label><input type="radio" name="tipo" /> Curso de Graduação</label>
-                <label><input type="radio" name="tipo" /> Curso de Especialização</label>
-            </fieldset>
+    <h1>Cadastro Nacional de Cursos e Instituições de Educação Superior</h1>
+    <p>
+      Bem-vindo ao Cadastro e-MEC, regulamentado pela Portaria Normativa nº 21, de 21/12/2017.
+      Esta é a base oficial de dados dos cursos e instituições de educação superior – IES.
+      A veracidade das informações é de responsabilidade das próprias instituições, conforme legislação vigente.
+    </p>
+  </header>
 
-            <label>Nome ou Código:
-                <input type="text" name="nome" placeholder="Ex: UNINASSAU" />
-            </label>
+  <main class="container">
+    <form id="formBusca">
+      <fieldset>
+        <legend>Buscar por:</legend>
+        <label><input type="radio" name="tipo" checked /> 🏛️ Instituição</label>
+        <label><input type="radio" name="tipo" /> 🎓 Curso de Graduação</label>
+        <label><input type="radio" name="tipo" /> 📘 Curso de Especialização</label>
+      </fieldset>
 
-            <label>UF:
-                <select name="uf">
-                    <option value="">Selecione...</option>
-                    <option value="PE">PE</option>
-                    <option value="SP">SP</option>
-                </select>
-            </label>
+      <label>Nome, Sigla ou Código da Instituição:
+        <input type="text" name="nome" placeholder="Ex: UNINASSAU" />
+      </label>
 
-            <label>Município:
-                <input type="text" name="municipio" />
-            </label>
+      <label>UF:
+        <select name="uf">
+          <option value="">Selecione...</option>
+          <option value="PE">PE</option>
+          <option value="SP">SP</option>
+          <option value="RJ">RJ</option>
+          <option value="MG">MG</option>
+          <option value="AM">AM</option>
+          <option value="GO">GO</option>
+          <option value="PA">PA</option>
+          <option value="TO">TO</option>
+          <option value="AL">AL</option>
+          <option value="AC">AC</option>
+          <option value="AP">AP</option>
+          <option value="BA">BA</option>
+          <option value="CE">CE</option>
+          <option value="MA">MA</option>
+          <option value="MT">MT</option>
+          <option value="MS">MS</option>
+          <option value="PB">PB</option>
+          <option value="PI">PI</option>
+          <option value="RN">RN</option>
+          <option value="RO">RO</option>
+          <option value="RR">RR</option>
+          <option value="SE">SE</option>
+          <option value="SC">SC</option>
+          <option value="DF">DF</option>
+          <option value="ES">ES</option>
+        </select>
+      </label>
 
-            <button type="submit">Buscar</button>
-        </form>
+      <label>Município:
+        <input type="text" name="municipio" />
+      </label>
 
-        <section id="resultado">
-            <h2>Resultados:</h2>
-            <ul id="listaResultados"></ul>
-        </section>
-    </main>
+      <button type="submit">🔎 Buscar</button>
+    </form>
 
-    <script src="js/script.js"></script>
+    <section id="resultado">
+      <h2>Resultados:</h2>
+      <ul id="listaResultados"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
-
 </html>
