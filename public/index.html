@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro e-MEC</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #f5f9fc;
+            color: #333;
+        }
+
+        header {
+            background: #76ACD4;
+            padding: 1rem;
+            color: #fff;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: grid;
+            gap: 1rem;
+        }
+
+        fieldset {
+            border: none;
+            display: flex;
+            gap: 1rem;
+        }
+
+        label {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input,
+        select,
+        button {
+            padding: 0.6rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        button {
+            background-color: #76ACD4;
+            color: white;
+            cursor: pointer;
+            border: none;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #5c90b5;
+        }
+
+        #resultado {
+            margin-top: 2rem;
+        }
+
+        #listaResultados li {
+            padding: 0.6rem;
+            border-bottom: 1px solid #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Cadastro Nacional de Cursos e Instituições de Educação Superior</h1>
+        <p>Bem vindo ao Cadastro e-MEC, regulamentado pela Portaria Normativa nº 21...</p>
+    </header>
+
+    <main class="container">
+        <form id="formBusca">
+            <fieldset>
+                <legend>Buscar por:</legend>
+                <label><input type="radio" name="tipo" checked /> Instituição</label>
+                <label><input type="radio" name="tipo" /> Curso de Graduação</label>
+                <label><input type="radio" name="tipo" /> Curso de Especialização</label>
+            </fieldset>
+
+            <label>Nome ou Código:
+                <input type="text" name="nome" placeholder="Ex: UNINASSAU" />
+            </label>
+
+            <label>UF:
+                <select name="uf">
+                    <option value="">Selecione...</option>
+                    <option value="PE">PE</option>
+                    <option value="SP">SP</option>
+                </select>
+            </label>
+
+            <label>Município:
+                <input type="text" name="municipio" />
+            </label>
+
+            <button type="submit">Buscar</button>
+        </form>
+
+        <section id="resultado">
+            <h2>Resultados:</h2>
+            <ul id="listaResultados"></ul>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
